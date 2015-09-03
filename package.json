@@ -1,0 +1,44 @@
+{
+  "name": "polygon-centroid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
+  "scripts": {
+    "start": "watchify example/index.js -o example/bundle.js -d & st -nc -d example -p 3000",
+    "test": "browserify test/*.test.js | tap-closer | tap-status",
+    "build": "npm run dist && npm run uglify",
+    "dist": "browserify index.js -o dist/polygon-centroid.js",
+    "uglify": "uglifyjs dist/polygon-centroid.js > dist/polygon-centroid.min.js -m"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/w8r/random-geojson-grid.git"
+  },
+  "keywords": [
+    "polygon",
+    "centroid",
+    "geometry"
+  ],
+  "author": "Alexander Milevski <info@w8r.name>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/w8r/random-geojson-grid/issues"
+  },
+  "homepage": "https://github.com/w8r/random-geojson-grid#readme",
+  "devDependencies": {
+    "babelify": "^6.3.0",
+    "browserify": "^11.0.1",
+    "leaflet": "^0.7.5",
+    "st": "^0.5.5",
+    "tap-closer": "^1.0.0",
+    "tap-status": "^1.0.1",
+    "tape": "^4.2.0",
+    "uglify-js": "^2.4.24",
+    "watchify": "^3.4.0"
+  }
+}
